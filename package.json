@@ -2,7 +2,7 @@
   "name": "wds_final_test_be",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
     "nodemon": "^2.0.20"
   }
 }
