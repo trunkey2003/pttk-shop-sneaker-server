@@ -7,8 +7,6 @@ router.post('/register', async (req, res) => {
         if (!username || !email || !password) {
             return res.status(400).send({ error: 'Missing fields' });
         }
-        const newUser = await userService.registerUser({ username, email, password });
-        // res.status(201).send(user);
         const newuser = await userService.registerUser({ username, email, password });
         return res.status(201).json({ message: 'User registered successfully', data: newuser });
     } catch (err) {
