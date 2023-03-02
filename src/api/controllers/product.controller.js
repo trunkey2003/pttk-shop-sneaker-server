@@ -1,5 +1,5 @@
 const products = require('../../integration/product');
-var productList = require('../../services/productService')
+var productList = require('../../middlewares/productService')
 
 class ProductController{
     getProduct(req,res){
