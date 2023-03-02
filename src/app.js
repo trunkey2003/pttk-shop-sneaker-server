@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const routes = require('./api/routes/index.js');
+const route = require('./api/routes/routes');
 const app = express();
 async function connect() {
     try {
@@ -11,7 +11,7 @@ async function connect() {
     }
 }
 connect();
-app.use('/', routes);
+route(app);
 app.listen(3000);
 
 module.exports = app;
