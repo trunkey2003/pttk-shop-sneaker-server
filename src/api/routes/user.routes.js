@@ -1,8 +1,8 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/user.controller");
-const router = require("express").Router();
+const userController = require("../controllers/user.controller");
+const user_router = require("express").Router();
 
-router.use((req, res, next) => {
+user_router.use((req, res, next) => {
     res.header(
         "Access-Control-Allow-Headers",
         "x-access-token, Origin, Content-Type, Accept"
@@ -10,13 +10,15 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get("/test/all", controller.allAccess);
+user_router.get("/test/all", userController.allAccess);
 
-router.get("/test/user", [authJwt.verifyToken], controller.userBoard);
+user_router.get("/test/user", [authJwt.verifyToken], userController.userBoard);
 
-router.get(
+user_router.get(
     "/test/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
-    controller.adminBoard
+    userController.adminBoard
 );
-module.exports = router;
+user_router.post("/registerUser",userController.registerUser)
+user_router.post("/login",userController.login)
+module.exports = user_router;
