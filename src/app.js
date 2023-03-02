@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const route = require('./api/routes/routes');
+const route = require('./api/routes/product.routes');
 const app = express();
 async function connect() {
     try {
