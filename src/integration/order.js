@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const OrderSchema = new mongoose.Schema(
+const Order = new mongoose.Schema(
   {
     userId: {
       type: String,
@@ -20,8 +20,15 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       default: "processing",
     },
+
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Order", OrderSchema);
+module.exports = mongoose.model("Order", Order);
