@@ -7,12 +7,19 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
         username: req.body.username
     }).exec((err, user) => {
         if (err) {
-            res.status(500).send({ message: err });
+            res.status(500)
+                .send({
+                    ok: false,
+                    message: err
+                });
             return;
         }
 
         if (user) {
-            res.status(400).send({ message: "Failed! Username is already in use!" });
+            res.status(400).send({
+                ok: false,
+                message: "Failed! Username is already in use!"
+            });
             return;
         }
 
@@ -20,12 +27,18 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
             email: req.body.email
         }).exec((err, user) => {
             if (err) {
-                res.status(500).send({ message: err });
+                res.status(500).send({
+                    ok: false,
+                    message: err
+                });
                 return;
             }
 
             if (user) {
-                res.status(400).send({ message: "Failed! Email is already in use!" });
+                res.status(400).send({
+                    ok: false,
+                    message: "Failed! Email is already in use!"
+                });
                 return;
             }
 
