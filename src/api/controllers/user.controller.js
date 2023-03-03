@@ -1,12 +1,4 @@
-const verifySignUp = require('../../middlewares/verifySignup');
-const db = require('../../integration');
-const user = db.user;
-// app.post('/registerUser', (req, res) => {
-//     verifySignUp.checkDuplicateUsernameOrEmail(req, res)
-
-// })
 exports.registerUser = (req, res) => {
-    // Save User to Database
     user.create({
         username: req.body.username,
         email: req.body.email,

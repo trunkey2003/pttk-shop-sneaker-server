@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "localhost",
-    PORT: 27017,
-    DB: "wds_db"
-  };
+  HOST: "wdsteambe2003",
+  PORT: "123abc456@wdsdatabase.i3up3zz.mongodb.net",
+  DB: "test"
+};
