@@ -1,5 +1,5 @@
-const config = require("../config/auth.config");
-const db = require("../integration");
+const config = require("../../config/auth.config.js");
+const db = require("../../integration");
 const User = db.user;
 const Role = db.role;
 
@@ -90,7 +90,7 @@ exports.signin = (req, res) => {
             }
 
             var token = jwt.sign({ id: user.id }, config.secret, {
-                expiresIn: 86400 // 24 hours
+                expiresIn: 86400
             });
 
             var authorities = [];
