@@ -1,6 +1,3 @@
-// var express = require('express');
-// var router = require('express').Router();
-// var router = express.Router();
 const verifySignUp = require('../../middlewares/verifySignup');
 const db = require('../../integration');
 const user = db.user;
