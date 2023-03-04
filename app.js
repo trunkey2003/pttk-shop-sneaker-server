@@ -7,19 +7,15 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./src/integration");
 const Role = db.role;
-db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");
-    initial();
-  })
-  .catch(err => {
-    console.error("Connection error", err);
-    process.exit();
-  });
+async function connect() {
+  try {
+    await mongoose.connect('mongodb+srv://wdsteambe2003:123abc456@wdsdatabase.i3up3zz.mongodb.net/website');
+    console.log('connect success')
+  } catch (error) {
+    console.log('connect failure')
+  }
+}
+connect();
 
 // simple route
 app.get("/", (req, res) => {
