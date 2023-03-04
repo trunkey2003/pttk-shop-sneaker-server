@@ -1,10 +1,13 @@
 const express = require("express");
 const dbConfig = require("./src/config/db.config");
-
+const mongoose = require("mongoose");
+// const route = require("./src/api/routes/route");
+const bodyParser = require("body-parser");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 const db = require("./src/integration");
 const Role = db.role;
 async function connect() {
