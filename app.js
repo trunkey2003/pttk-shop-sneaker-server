@@ -30,9 +30,9 @@ app.use(cors(
   }
 ));
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to WDS application." });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Welcome to WDS application." });
+// });
 
 // routes
 require("./src/api/routes/order.routes")(app);
