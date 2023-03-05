@@ -23,12 +23,13 @@ class CartController {
     try {
       const { quantity } = req.body;
       Cart.findOneAndUpdate({_id: req.params.id}, {quantity: quantity}, null)
-      .then((cart) => {
-        res.status(200).json({
-          success: true,
-          cart,
-        });
-      })
+        .then((cart) => {
+          res.status(200).json({
+            success: true,
+            cart,
+          });
+        })
+        .cat
 
       const cart = await Cart.findByIdAndUpdate(req.params.id);
       if (!cart) {
