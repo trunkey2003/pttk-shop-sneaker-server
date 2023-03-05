@@ -44,7 +44,7 @@ class CartController {
 
   async getCartData(req, res) {
     try {
-      const cartData = await Cart.find({ userId: req.user.id });
+      const cartData = await Cart.find({ userId: req.body.userId });
       res.status(200).json({
         success: true,
         cartData,
