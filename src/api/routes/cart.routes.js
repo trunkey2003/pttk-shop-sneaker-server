@@ -1,10 +1,8 @@
-const express = require("express");
-const cart_router = express.Router();
 const CartController = require("../controllers/cart.controller");
 
-module.exports = (cart_router) => {
-  cart_router.post("/addToCart", CartController.addToCart);
-  cart_router.get("/cart", CartController.getCartData);
-  cart_router.put("/cart/update/:id", CartController.updateCart);
-  cart_router.delete("/removeCart/:id", CartController.removeCartData);
+module.exports = (app) => {
+  app.post("/api/addToCart", CartController.addToCart);
+  app.get("/api/cart", CartController.getCartData);
+  app.put("/api/cart/update/:id", CartController.updateCart);
+  app.delete("/api/removeCart/:id", CartController.removeCartData);
 };

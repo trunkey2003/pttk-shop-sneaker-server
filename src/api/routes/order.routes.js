@@ -1,5 +1,3 @@
-const express = require("express");
-const order_router = express.Router();
 const OrderController = require("../controllers/order.controller");
 
 module.exports = (order_router) => {

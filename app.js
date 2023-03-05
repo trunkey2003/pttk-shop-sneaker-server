@@ -26,7 +26,8 @@ app.get("/", (req, res) => {
 });
 
 // routes
-
+require("./src/api/routes/order.routes")(app);
+require("./src/api/routes/cart.routes")(app);
 require("./src/api/routes/auth.routes")(app);
 require("./src/api/routes/user.routes")(app);
 require("./src/api/routes/product.routes")(app);
