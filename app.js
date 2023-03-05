@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 // const route = require("./src/api/routes/route");
 const bodyParser = require("body-parser");
 const app = express();
+const cors = require("cors");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const db = require("./src/integration");
 const Role = db.role;
+
 async function connect() {
   try {
     await mongoose.connect('mongodb+srv://wdsteambe2003:123abc456@wdsdatabase.i3up3zz.mongodb.net/website');
@@ -19,7 +21,14 @@ async function connect() {
   }
 }
 connect();
-
+app.use(cors(
+  {
+    credentials: true,
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'],
+    optionsSuccessStatus: 200,
+  }
+));
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to WDS application." });

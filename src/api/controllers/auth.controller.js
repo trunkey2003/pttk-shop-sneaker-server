@@ -65,7 +65,7 @@ exports.signin = (req, res) => {
             var authorities = [];
 
             for (let i = 0; i < user.roles.length; i++) {
-                authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+                authorities.push("role_" + user.roles[i].name);
             }
             res.status(200).send({
                 id: user._id,
@@ -80,4 +80,9 @@ exports.signin = (req, res) => {
             return;
         }
         )
+}
+
+exports.signout = (req, res) => {
+    req.logout();
+    res.status(200).json({ message: 'You have signed out successfully' });
 }

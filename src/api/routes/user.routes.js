@@ -15,4 +15,5 @@ module.exports = function (app) {
         [authJwt.verifyToken, authJwt.isAdmin],
         controller.user_controller.adminBoard
     );
+
 };
