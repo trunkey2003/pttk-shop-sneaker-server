@@ -22,8 +22,15 @@ class CartController {
   async updateCart(req, res) {
     try {
       const { quantity } = req.body;
-      const cart = await Cart.findByIdAndUpdate(req.params.id);
+      Cart.findOneAndUpdate({_id: req.params.id}, {quantity: quantity}, null)
+      .then((cart) => {
+        res.status(200).json({
+          success: true,
+          cart,
+        });
+      })
 
+      const cart = await Cart.findByIdAndUpdate(req.params.id);
       if (!cart) {
         return next(new Error());
       }
