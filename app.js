@@ -35,6 +35,8 @@ app.get("/", (req, res) => {
 require("./src/api/routes/auth.routes")(app);
 require("./src/api/routes/user.routes")(app);
 require("./src/api/routes/product.routes")(app);
+require("./src/api/routes/order.routes")(app);
+require("./src/api/routes/cart.routes")(app);
 //set port
 const PORT = 8080;
 app.listen(PORT, () => {
