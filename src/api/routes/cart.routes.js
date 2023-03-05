@@ -12,5 +12,5 @@ module.exports = (app) => {
   app.post("/api/addToCart", CartController.addToCart);
   app.get("/api/cart", CartController.getCartData);
   app.put("/api/cart/update/:id", CartController.updateCart);
-  app.delete("/api/removeCart/:id", CartController.removeCartData);
+  app.delete("/api/cart/remove/:id", CartController.removeCartData);
 };
