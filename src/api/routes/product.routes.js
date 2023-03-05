@@ -8,11 +8,11 @@ module.exports = (app) => {
         );
         next();
     });
-    app.get('/', ProductController.getProduct);
-    app.get('/detail/:id', ProductController.getProductDetail)
-    app.post('/api/add', [isAdmin], ProductController.addProduct);
-    app.delete('/delete/:id', [isAdmin], ProductController.deleteProduct);
-    app.put('/update/:id', [isAdmin], ProductController.updateProduct);
+    app.get('/api/product', ProductController.getProduct);
+    app.get('/api/product/detail/:id', ProductController.getProductDetail)
+    app.post('/api/product/add', [isAdmin], ProductController.addProduct);
+    app.delete('/api/product/delete/:id', [isAdmin], ProductController.deleteProduct);
+    app.put('/api/product/update/:id', [isAdmin], ProductController.updateProduct);
 }
 // module.exports = product_router;
 
