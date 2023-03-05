@@ -3,18 +3,12 @@ const Cart = require("../../integration/cart");
 class CartController {
   async addToCart(req, res) {
     const {
-      productName,
       quantity,
-      productImage,
-      productPrice,
       userId,
       productId,
     } = req.body;
     const cart = await Cart.create({
-      productName,
       quantity,
-      productImage,
-      productPrice,
       userId,
       productId,
     });
