@@ -9,8 +9,8 @@ module.exports = (app) => {
       next();
   });
 
-  app.post("/api/addToCart", CartController.addToCart);
-  app.get("/api/cart", CartController.getCartData);
-  app.put("/api/cart/update/:id", CartController.updateCart);
-  app.delete("/api/cart/remove/:id", CartController.removeCartData);
+  app.post("/api/addToCart", [authJwt.verifyToken], CartController.addToCart);
+  app.get("/api/cart", [authJwt.verifyToken], CartController.getCartData);
+  app.put("/api/cart/update/:id", [authJwt.verifyToken], CartController.updateCart);
+  app.delete("/api/cart/remove/:id", [authJwt.verifyToken], CartController.removeCartData);
 };
