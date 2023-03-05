@@ -31,7 +31,7 @@ class OrderController {
         try {
             const order = await Order.findById(req.params.id);
             if (!order) return next(new Error());
-            else await order.remove();
+            else await order.deleteOne();
             res.status(200).json({
                 message: "order deleted successfully",
             });
