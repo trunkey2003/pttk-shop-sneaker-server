@@ -10,11 +10,8 @@ module.exports = function (app) {
         next();
     });
 
-    app.get("/api/test/all", controller.user_controller.allAccess);
-    app.post('',)
-    app.post("/api/test/registerUser", controller.auth_controller.signup);
+    // app.get("/api/test/all", controller.user_controller.allAccess);
     app.get("/api/test/user", [authJwt.verifyToken], controller.user_controller.userBoard);
-    app.post("/api/test/signin", controller.auth_controller.signin);
     app.get(
         "/api/test/admin",
         [authJwt.verifyToken, authJwt.isAdmin],
