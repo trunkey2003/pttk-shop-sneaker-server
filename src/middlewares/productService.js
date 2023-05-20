@@ -1,7 +1,7 @@
 const product = require('../integration/product')
 const mongoose = require('mongoose')
 async function ProductList(){
-    var products =await product.find();
+    var products = await product.find({})
     return products;
 }
 async function ProductDetail(id){
