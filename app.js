@@ -11,20 +11,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const db = require("./src/integration");
 const Role = db.role;
+require('dotenv').config();
 
 async function connect() {
   try {
-    await mongoose.connect('mongodb+srv://wdsteambe2003:123abc456@wdsdatabase.i3up3zz.mongodb.net/website');
-    console.log('connect success')
+    await mongoose.connect(process.env.DB_CONNECTION_STRING);
+    console.log('Connect successfully to MongoDB database');
   } catch (error) {
-    console.log('connect failure')
+    console.log(error);
+    console.log('Connect failure to MongoDB database');
   }
 }
 connect();
 app.use(cors(
   {
     credentials: true,
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', process.env.CLIENT_CORS_ORIGIN],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'],
     optionsSuccessStatus: 200,
   }
