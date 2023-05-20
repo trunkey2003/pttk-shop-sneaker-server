@@ -45,7 +45,7 @@ require("./src/api/routes/product.routes")(app);
 require("./src/api/routes/order.routes")(app);
 require("./src/api/routes/cart.routes")(app);
 //set port
-const PORT = 8081;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
