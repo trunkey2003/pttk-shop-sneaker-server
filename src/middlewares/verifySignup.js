@@ -2,7 +2,7 @@ const db = require("../integration");
 
 const User = db.user;
 
-checkDuplicateUsernameOrEmail = (req, res, next) => {
+const checkDuplicateUsernameOrEmail = (req, res, next) => {
     User.findOne({ username: req.body.username })
         .then(user => {
             if (user) {
